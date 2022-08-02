@@ -1,4 +1,4 @@
-export default function ListItems(itemList, updateItemList) {
+export default function ListItems({itemList, updateItemList}) {
   function deleteItemFromlist({ key }) {
     const newList = itemList.filter((itemObj) => {
       return itemObj.key !== key;
@@ -12,7 +12,7 @@ export default function ListItems(itemList, updateItemList) {
         return (
           <li key={itemObj.key}>
             <p>{itemObj.item}</p>
-            <button onClick={() => deleteItemFromlist(itemObj.key)}>Del</button>
+            <button onClick={() => deleteItemFromlist(itemObj)}>Del</button>
           </li>
         );
       })}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import ListItems from "./ListItems";
 
 export default function InputItems(e) {
-  const [currentItem, setCurrentItem] = useState(null);
+  const [currentItem, setCurrentItem] = useState("");
   const [itemList, updateItemList] = useState([]);
 
   const handleInputChange = (e) => {
@@ -10,14 +10,12 @@ export default function InputItems(e) {
   };
 
   const handleAddToList = () => {
-    return updateItemList([...itemList, { item: currentItem, key: Date.now() }]);
+    return updateItemList((prev) => [...prev, { item: currentItem, key: Date.now() }]);
   };
 
   return (
     <div>
-      <input type="text" value={currentItem} placeholder="Add new..." onChange={handleInputChange}>
-        {e.target.value}
-      </input>
+      <input value={currentItem} placeholder="Add new..." onChange={handleInputChange} />
       <button onClick={handleAddToList}>Add</button>
       <ListItems itemList={itemList} updateItemList={updateItemList} />
     </div>
