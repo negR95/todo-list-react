@@ -15,9 +15,11 @@ export default function InputItems(e) {
 
   return (
     <div>
-      <input value={currentItem} placeholder="Add new..." onChange={handleInputChange} />
-      <button onClick={handleAddToList}>Add</button>
-      <ListItems itemList={itemList} updateItemList={updateItemList} />
+    <div className="input-group mb-3">
+      <input className="form-control" value={currentItem} placeholder="Add new ToDo..." onChange={handleInputChange} />
+      <button className="btn btn-warning" onClick={handleAddToList}>Add</button>
     </div>
+     <ListItems itemList={itemList} updateItemList={updateItemList} />
+     </div>
   );
 }
